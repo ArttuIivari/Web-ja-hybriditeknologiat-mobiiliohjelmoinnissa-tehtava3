@@ -17,9 +17,13 @@ export default function App() {
   const theme = colorScheme === "dark" ? customDarkTheme : customLightTheme
   return (
     <PaperProvider theme={theme}>
-      <MainAppbar />
+      
       <NavigationContainer>
-      <Stack.Navigator initialRouteName='Home'>
+      <Stack.Navigator 
+      initialRouteName='Home'
+      screenOptions={{
+        header: (props) => <MainAppbar {...props}/>
+      }}>
         <Stack.Screen
         name="Home"
         component={HomeScreen}
